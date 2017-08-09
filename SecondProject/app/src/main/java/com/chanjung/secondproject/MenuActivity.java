@@ -19,8 +19,8 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        // 아이디가 textView인 TextView에 1000ms당 conut를 1씩 증가시킨 후 textView의 내용을 업데이트 시킨다.
-        final TextView textView = (TextView)findViewById(R.id.textView);
+        // TODO: 아이디가 textView인 TextView에 1000ms당 conut를 1씩 증가시킨 후 textView의 내용을 업데이트 시킨다.
+        final TextView textView = (TextView)findViewById(R.id.textView);  // 더 이상 변경되지 않도록
 
         Thread t = new Thread(){
           @Override
@@ -31,7 +31,7 @@ public class MenuActivity extends AppCompatActivity {
 
                       runOnUiThread(new Runnable() {      //
                           @Override
-                          public void run() {
+                          public void run() {   //
                               count++;
 
                               textView.setText(String.valueOf(count));
@@ -51,9 +51,9 @@ public class MenuActivity extends AppCompatActivity {
     public void onBackButtonClicked(View v){
         Toast.makeText(getApplicationContext(), "뒤로가기 버튼을 눌렀어요.", Toast.LENGTH_LONG).show();
 
-        // MainActivity로 count값을 String으로 넘겨준다.
-        Intent intent = new Intent(MenuActivity.this, MainActivity.class);
-        intent.putExtra("counter", String.valueOf(count));
+        // TODO: MainActivity로 count값을 String으로 넘겨준다.
+        Intent intent = new Intent(MenuActivity.this, MainActivity.class); // Intent(A.this, B.class)는 현재 클래스 A를 B 클래스에 연결시키는 Intent 객체를 생성함.
+        intent.putExtra("counter", String.valueOf(count)); // putExtra(a, b)는 b의 값을 counter란 곳(key)에 담아둬 다른 Activity에 연결시킴.
         // end
 
         startActivity(intent);
