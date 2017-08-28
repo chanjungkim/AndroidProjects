@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
-    EditText editText;
+    // EditText editText;
     ArrayList<String> itemList;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,17 +37,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String newItem="";
 
-                // add new item to arraylist
+                adapter.notifyDataSetChanged();
+
                 itemList.add(newItem);
                 if(i == 0){
-                    findViewById(R.id.list_item).setBackgroundColor(Color.GRAY);
+                    findViewById(R.id.listItem).setBackgroundColor(Color.RED);
                     i=1;
                 }else{
-                    findViewById(R.id.list_item).setBackgroundColor(Color.RED);
+                    findViewById(R.id.listItem).setBackgroundColor(Color.GRAY);
                     i=0;
                 }
-                // notify listview of data changed
-                adapter.notifyDataSetChanged();
             }
 
         });
